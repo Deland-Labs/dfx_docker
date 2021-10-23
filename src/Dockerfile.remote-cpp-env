@@ -38,6 +38,8 @@ RUN apt-get update \
       nodejs \
       npm \
   && apt-get clean
+RUN rustup target add wasm32-unknown-unknown \
+    && cargo install ic-cdk-optimizer
 
 RUN ( \
     echo 'LogLevel DEBUG2'; \
