@@ -50,21 +50,23 @@ RUN ( \
   ) > /etc/ssh/sshd_config_test_clion \
   && mkdir /run/sshd
 
-RUN useradd -m user \
-  && yes password | passwd user
+RUN yes root | passwd user
 
-RUN usermod -s /bin/bash user
+# RUN useradd -m user \
+#   && yes password | passwd user
+
+# RUN usermod -s /bin/bash user
 
 # sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
-COPY install.sh /home/user/install.sh
-RUN chmod +x /home/user/install.sh
+# COPY install.sh /home/user/install.sh
+# RUN chmod +x /home/user/install.sh
 
-USER user
+# USER user
 
-COPY .bashrc ~/.bashrc
+# COPY .bashrc ~/.bashrc
 
-RUN ~/install.sh
+# RUN ~/install.sh
 
-USER root
+# USER root
 
 CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config_test_clion"]
