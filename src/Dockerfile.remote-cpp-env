@@ -50,7 +50,7 @@ RUN ( \
   ) > /etc/ssh/sshd_config_test_clion \
   && mkdir /run/sshd
 
-RUN yes root | passwd user
+RUN yes root | passwd root
 
 # RUN useradd -m user \
 #   && yes password | passwd user
