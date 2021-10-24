@@ -39,6 +39,7 @@ RUN apt-get update \
       nodejs \
       npm \
   && apt-get clean
+RUN curl -fsSL https://sdk.dfinity.org/install.sh | sh
 RUN rustup target add wasm32-unknown-unknown \
     && cargo install ic-cdk-optimizer
 
