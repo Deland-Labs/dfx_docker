@@ -43,7 +43,7 @@ RUN curl -fsSL https://sdk.dfinity.org/install.sh | sh
 RUN curl -o rustup.sh --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
     && chmod +x rustup.sh \
     && ./rustup.sh -y --profile default -t wasm32-unknown-unknown \
-    && source /root/.cargo/env \
+    && . /root/.cargo/env \
     && cargo install ic-cdk-optimizer
 
 RUN ( \
