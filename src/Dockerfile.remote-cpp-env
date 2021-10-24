@@ -11,13 +11,12 @@
 # ssh credentials (test user):
 #   user@password 
 
-FROM ubuntu
+FROM ubuntu:focal
 
 EXPOSE 8000
 EXPOSE 22
 
 RUN DEBIAN_FRONTEND="noninteractive" apt-get update && apt-get -y install tzdata
-
 RUN apt-get update \
   && apt-get install -y ssh \
       build-essential \
@@ -44,7 +43,7 @@ RUN curl -fsSL https://sdk.dfinity.org/install.sh | sh
 RUN curl -o rustup.sh --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
     && chmod +x rustup.sh \
     && ./rustup.sh -y --profile default -t wasm32-unknown-unknown \
-    && source $HOME/.cargo/env \
+    && source /root/.cargo/env \
     && cargo install ic-cdk-optimizer
 
 RUN ( \
