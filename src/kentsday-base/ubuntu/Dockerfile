@@ -22,4 +22,5 @@ RUN apt-get update \
     curl \
     nodejs \
     npm \
+    pkg-config \
     && apt-get clean
