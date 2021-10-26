@@ -1,9 +1,18 @@
 version: "3.4"
 services:
-  clion_remote_env:
+  kentsday-base:
+    image: ${DOCKER_REGISTERY}/kentsday/kentsday-ubuntu-dev:${CODE_VERSION}
     build:
-      context: .
-      dockerfile: ./Dockerfile.remote-cpp-env
-    ports:
-      - "127.0.0.1:2222:22"
-      - "127.0.0.1:18000:8000"
+      context: ./kentsday-base/ubuntu
+      args:
+        CODE_VERSION: ${CODE_VERSION}
+        DOCKER_REGISTERY: ${DOCKER_REGISTERY}
+  dfx_rust:
+    image: ${DOCKER_REGISTERY}/kentsday/dfx_rust:${CODE_VERSION}
+    build:
+      context: ./dfx_rust/ubuntu
+      args:
+        CODE_VERSION: ${CODE_VERSION}
+        DOCKER_REGISTERY: ${DOCKER_REGISTERY}
+    depends_on:
+      - kentsday-base
