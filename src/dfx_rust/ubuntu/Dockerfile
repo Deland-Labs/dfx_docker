@@ -2,6 +2,9 @@ ARG CODE_VERSION=latest
 ARG DOCKER_REGISTERY=docker.io
 FROM ${DOCKER_REGISTERY}/kentsday/kentsday-ubuntu-dev:${CODE_VERSION}
 
+EXPOSE 8000
+EXPOSE 22
+
 RUN curl -fsSL https://sdk.dfinity.org/install.sh | sh
 RUN curl -o rustup.sh --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
     && chmod +x rustup.sh \
