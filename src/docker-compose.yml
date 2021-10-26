@@ -1,12 +1,18 @@
 version: "3.4"
 services:
   kentsday-base:
-    image: kentsday/kentsday-ubuntu-dev:latest
+    image: ${DOCKER_REGISTERY}/kentsday/kentsday-ubuntu-dev:${CODE_VERSION}
     build:
       context: ./kentsday-base/ubuntu
+      args:
+        CODE_VERSION: ${CODE_VERSION}
+        DOCKER_REGISTERY: ${DOCKER_REGISTERY}
   dfx_rust:
-    image: kentsday/dfx_rust:latest
+    image: ${DOCKER_REGISTERY}/kentsday/dfx_rust:${CODE_VERSION}
     build:
       context: ./dfx_rust/ubuntu
+      args:
+        CODE_VERSION: ${CODE_VERSION}
+        DOCKER_REGISTERY: ${DOCKER_REGISTERY}
     depends_on:
       - kentsday-base
