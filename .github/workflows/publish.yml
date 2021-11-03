@@ -34,6 +34,7 @@ jobs:
         env:
           CODE_VERSION: latest
           DOCKER_REGISTERY: dfxregistry.azurecr.io
+          RUST_VERSION: 1.51.0
       - name: Build and push dockerhub
         run: |
           cd src
@@ -42,3 +43,4 @@ jobs:
         env:
           CODE_VERSION: latest
           DOCKER_REGISTERY: docker.io
+          RUST_VERSION: 1.51.0

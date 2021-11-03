@@ -21,3 +21,4 @@ jobs:
         env:
           CODE_VERSION: latest
           DOCKER_REGISTERY: docker.io
+          RUST_VERSION: 1.51.0
