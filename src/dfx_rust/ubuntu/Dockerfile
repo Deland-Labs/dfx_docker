@@ -16,8 +16,7 @@ RUN curl -fsSL https://sdk.dfinity.org/install.sh | sh
 
 RUN curl -o rustup.sh --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
     && chmod +x rustup.sh \
-    && ./rustup.sh -y --profile default --default-toolchain ${RUST_VERSION}-x86_64-unknown-linux-gnu --no-modify-path \
-    && rustup default ${RUST_VERSION}-x86_64-unknown-linux-gnu \
+    && ./rustup.sh -y --profile default --no-modify-path \
     && rustup target add wasm32-unknown-unknown
 
 ENV CARGO_HOME=/cargo \
