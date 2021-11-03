@@ -14,5 +14,6 @@ services:
       args:
         CODE_VERSION: ${CODE_VERSION}
         DOCKER_REGISTERY: ${DOCKER_REGISTERY}
+        RUST_VERSION: ${RUST_VERSION}
     depends_on:
       - kentsday-base
