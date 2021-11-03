@@ -1,6 +1,6 @@
 ARG CODE_VERSION=latest
 ARG DOCKER_REGISTERY=docker.io
-ARG rust_version=1.51.0
+ARG RUST_VERSION=1.51.0
 FROM ${DOCKER_REGISTERY}/kentsday/kentsday-ubuntu-dev:${CODE_VERSION}
 
 EXPOSE 8000
@@ -15,8 +15,8 @@ ENV RUSTUP_HOME=/opt/rustup \
     PATH=/opt/cargo/bin:$PATH
 
 RUN curl --fail https://sh.rustup.rs -sSf \
-    | sh -s -- -y --default-toolchain ${rust_version}-x86_64-unknown-linux-gnu --no-modify-path && \
-    rustup default ${rust_version}-x86_64-unknown-linux-gnu && \
+    | sh -s -- -y --default-toolchain ${RUST_VERSION}-x86_64-unknown-linux-gnu --no-modify-path && \
+    rustup default ${RUST_VERSION}-x86_64-unknown-linux-gnu && \
     rustup target add wasm32-unknown-unknown
 
 ENV CARGO_HOME=/cargo \
