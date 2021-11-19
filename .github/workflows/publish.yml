@@ -32,15 +32,13 @@ jobs:
           docker-compose build
           docker-compose push
         env:
-          CODE_VERSION: latest
           DOCKER_REGISTERY: dfxregistry.azurecr.io
-          RUST_VERSION: 1.51.0
+          VARIANT: bullseye
       - name: Build and push dockerhub
         run: |
           cd src
           docker-compose build
           docker-compose push
         env:
-          CODE_VERSION: latest
           DOCKER_REGISTERY: docker.io
-          RUST_VERSION: 1.51.0
+          VARIANT: bullseye
