@@ -14,12 +14,13 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     # g++ \
     build-essential \
     # gdb \
-    # clang \
+    python3-pip \
     make \
     cmake \
     pkg-config \
     # gcc-multilib \
     && apt-get clean
+RUN pip3 install pipenv
 RUN curl -fsSL https://sdk.dfinity.org/install.sh | sh
 # COPY config.toml /usr/local/cargo/
 RUN cargo install ic-cdk-optimizer
