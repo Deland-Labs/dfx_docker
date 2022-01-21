@@ -23,6 +23,7 @@ RUN rustup toolchain install stable && \
     rustup target add wasm32-unknown-unknown --toolchain stable
 RUN curl -fsSL https://sdk.dfinity.org/install.sh | sh
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
+    source ~/.bashrc && \
     nvm install 16 && \
     npm install -g typescript && \
     npm install -g ts-node
