@@ -21,6 +21,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     # gcc-multilib \
     && apt-get clean
 RUN pip3 install pipenv
+RUN rustup add target wasm32-unknown-unknown --toolchain stable
 RUN curl -fsSL https://sdk.dfinity.org/install.sh | sh
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
     nvm install 16 && \
