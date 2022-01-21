@@ -22,5 +22,10 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get clean
 RUN pip3 install pipenv
 RUN curl -fsSL https://sdk.dfinity.org/install.sh | sh
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
+    nvm install 16 && \
+    npm install -g typescript && \
+    npm install -g ts-node
+    
 # COPY config.toml /usr/local/cargo/
 RUN cargo install ic-cdk-optimizer
