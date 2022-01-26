@@ -26,7 +26,7 @@ jobs:
           registry: dfxregistry.azurecr.io
           username: ${{ secrets.AZURE_CLIENT_ID }}
           password: ${{ secrets.AZURE_CLIENT_SECRET }}
-      - name: Build and push acr
+      - name: Build and push acr bullseye
         run: |
           cd src
           docker-compose build
@@ -34,7 +34,15 @@ jobs:
         env:
           DOCKER_REGISTERY: dfxregistry.azurecr.io
           VARIANT: bullseye
-      - name: Build and push dockerhub
+      - name: Build and push acr latest
+        run: |
+          cd src
+          docker-compose build
+          docker-compose push
+        env:
+          DOCKER_REGISTERY: dfxregistry.azurecr.io
+          VARIANT: latest
+      - name: Build and push dockerhub bullseye
         run: |
           cd src
           docker-compose build
@@ -42,3 +50,11 @@ jobs:
         env:
           DOCKER_REGISTERY: docker.io
           VARIANT: bullseye
+      - name: Build and push dockerhub latest
+        run: |
+          cd src
+          docker-compose build
+          docker-compose push
+        env:
+          DOCKER_REGISTERY: docker.io
+          VARIANT: latest
