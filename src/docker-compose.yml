@@ -6,3 +6,5 @@ services:
       context: ./dfx_rust/bullseye
       args:
         VARIANT: ${VARIANT}
+      env:
+        - DFX_VERSION=0.9.0
