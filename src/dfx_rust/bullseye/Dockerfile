@@ -1,6 +1,5 @@
 # [Choice] Debian OS version (use bullseye on local arm64/Apple Silicon): buster, bullseye
 ARG VARIANT="sudo"
-ARG DFX_VERSION="0.9.0"
 FROM mcr.microsoft.com/vscode/devcontainers/rust:1-${VARIANT}
 
 # [Optional] Uncomment this section to install additional packages.
