@@ -1,5 +1,6 @@
 # [Choice] Debian OS version (use bullseye on local arm64/Apple Silicon): buster, bullseye
 ARG VARIANT="sudo"
+ARG DFX_VERSION="0.9.0"
 FROM mcr.microsoft.com/vscode/devcontainers/rust:1-${VARIANT}
 
 # [Optional] Uncomment this section to install additional packages.
@@ -21,6 +22,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 RUN pip3 install pipenv
 RUN rustup toolchain install stable && \
     rustup target add wasm32-unknown-unknown --toolchain stable
+ENV DFX_VERSION=${DFX_VERSION}
 RUN curl -fsSL https://sdk.dfinity.org/install.sh | sh
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
     . ~/.bashrc && \
