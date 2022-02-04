@@ -22,8 +22,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 RUN pip3 install pipenv
 RUN rustup toolchain install stable && \
     rustup target add wasm32-unknown-unknown --toolchain stable
-ENV DFX_VERSION=${DFX_VERSION}
-RUN curl -fsSL https://sdk.dfinity.org/install.sh | sh
+RUN DFX_VERSION=${DFX_VERSION} sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
     . ~/.bashrc && \
     nvm install 16 && \
