@@ -9,25 +9,29 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     # cpp \
     # gcc-8-multilib \
     # libgcc-8-dev \
-    # gcc \
+    gcc \
     # g++ \
     build-essential \
-    # gdb \
+    gdb \
     python3-pip \
     make \
     cmake \
     pkg-config \
-    # gcc-multilib \
+    gcc-multilib \
     && apt-get clean
-RUN pip3 install pipenv
+RUN pip3 install pipenv && \
+    pip3 install pre-commit
 RUN rustup toolchain install stable && \
     rustup target add wasm32-unknown-unknown --toolchain stable
 RUN sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
     . ~/.bashrc && \
-    nvm install 16 && \
-    npm install -g typescript && \
-    npm install -g ts-node
+    nvm i 16 && \
+    npm i -g typescript && \
+    npm i -g ts-node
     
 # COPY config.toml /usr/local/cargo/
-RUN cargo install ic-cdk-optimizer
+RUN cargo install ic-cdk-optimizer && \
+    cargo install cargo-audit && \
+    cargo install cargo-nextest && \
+    cargo install cargo-llvm-cov 
