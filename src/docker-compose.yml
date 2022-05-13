@@ -1,8 +1,14 @@
 version: "3.4"
 services:
   dfx_rust:
-    image: ${DOCKER_REGISTERY}/kentsday/dfx_rust:${VARIANT}
+    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_rust:${VARIANT}
     build:
       context: ./dfx_rust/bullseye
+      args:
+        VARIANT: ${VARIANT}
+  dfx_node:
+    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${VARIANT}
+    build:
+      context: ./dfx_node/bullseye
       args:
         VARIANT: ${VARIANT}
