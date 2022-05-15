@@ -1,14 +1,16 @@
 version: "3.4"
 services:
   dfx_rust:
-    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_rust:${VARIANT}
+    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_rust:${VARIANT}-dfx-${DFX_VERSION}
     build:
       context: ./dfx_rust/bullseye
       args:
         VARIANT: ${VARIANT}
+        DFX_VERSION: ${DFX_VERSION}
   dfx_node:
-    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${VARIANT}
+    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${VARIANT}-dfx-${DFX_VERSION}
     build:
       context: ./dfx_node/bullseye
       args:
         VARIANT: ${VARIANT}
+        DFX_VERSION: ${DFX_VERSION}
