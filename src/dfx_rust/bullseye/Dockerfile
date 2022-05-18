@@ -30,9 +30,6 @@ RUN curl -fsSL https://sdk.dfinity.org/install.sh > install.sh && \
     chmod +x install.sh && \
     DFX_VERSION=$DFX_VERSION ./install.sh && \
     rm install.sh
-RUN npm i -g typescript && \
-    npm i -g ts-node && \
-    npm i -g yarn
     
 # COPY config.toml /usr/local/cargo/
 RUN cargo install ic-cdk-optimizer && \
