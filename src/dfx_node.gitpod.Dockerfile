@@ -2,7 +2,7 @@
 FROM gitpod/workspace-node-lts
 ARG DFX_VERSION="0.9.3"
 
-COPY fix_gitpod_path.sh ~/
+COPY fix_gitpod_path.sh .
 
 # [Optional] Uncomment this section to install additional packages.
 COPY install-base-ubuntu.sh .

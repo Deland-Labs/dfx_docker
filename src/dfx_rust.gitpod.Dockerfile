@@ -4,7 +4,7 @@ FROM gitpod/workspace-rust
 ARG DFX_VERSION
 ARG NODE_VERSION=16
 
-COPY fix_gitpod_path.sh ~/
+COPY fix_gitpod_path.sh .
 
 # [Optional] Uncomment this section to install additional packages.
 COPY install-base-ubuntu.sh .
