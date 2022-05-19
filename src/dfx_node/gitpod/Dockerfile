@@ -2,6 +2,8 @@
 FROM gitpod/workspace-node-lts
 ARG DFX_VERSION="0.9.3"
 
+COPY fix_gitpod_path.sh ~
+
 # [Optional] Uncomment this section to install additional packages.
 RUN sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && sudo apt-get -y install \
@@ -24,4 +26,3 @@ RUN curl -fsSL https://sdk.dfinity.org/install.sh > install.sh && \
     chmod +x install.sh && \
     DFX_VERSION=$DFX_VERSION  ./install.sh && \
     rm install.sh
-RUN npm install -g yarn typescript ts-node

@@ -3,6 +3,9 @@ ARG VARIANT="sudo"
 FROM gitpod/workspace-rust
 ARG DFX_VERSION
 ARG NODE_VERSION=16
+
+COPY fix_gitpod_path.sh ~
+
 # [Optional] Uncomment this section to install additional packages.
 RUN sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && sudo apt-get -y install \
@@ -33,8 +36,7 @@ RUN curl -fsSL https://sdk.dfinity.org/install.sh > install.sh && \
 RUN curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | PROFILE=/dev/null bash \
     && bash -c ". .nvm/nvm.sh \
         && nvm install v${NODE_VERSION} \
-        && nvm alias default v${NODE_VERSION} \
-        && npm install -g typescript yarn pnpm node-gyp ts-node" \
+        && nvm alias default v${NODE_VERSION}" \
 
 # COPY config.toml /usr/local/cargo/
 RUN cargo install ic-cdk-optimizer && \

@@ -24,5 +24,4 @@ RUN curl -fsSL https://sdk.dfinity.org/install.sh > install.sh && \
     chmod +x install.sh && \
     DFX_VERSION=$DFX_VERSION  ./install.sh && \
     rm install.sh
-RUN npm install -g yarn typescript ts-node
     
