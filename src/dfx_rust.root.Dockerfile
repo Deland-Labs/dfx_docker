@@ -22,4 +22,4 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | b
     nvm alias default v${NODE_VERSION}
     
 # COPY config.toml /usr/local/cargo/
-COPY cargo-cli/* /usr/local/cargo/bin
+COPY cargo-cli/* /usr/local/cargo/bin/
