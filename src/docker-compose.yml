@@ -4,6 +4,7 @@ services:
     image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_rust:${VARIANT}-dfx-${DFX_VERSION}-${PATCH_VERSION}
     build:
       dockerfile: dfx_rust.root.Dockerfile
+      context: .
       args:
         VARIANT: ${VARIANT}
         DFX_VERSION: ${DFX_VERSION}
@@ -11,6 +12,7 @@ services:
     image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${VARIANT}-dfx-${DFX_VERSION}-${PATCH_VERSION}
     build:
       dockerfile: dfx_node.root.Dockerfile
+      context: .
       args:
         VARIANT: ${VARIANT}
         DFX_VERSION: ${DFX_VERSION}
@@ -18,6 +20,7 @@ services:
     image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_rust:${VARIANT}-dfx-${DFX_VERSION}-gitpod-${PATCH_VERSION}
     build:
       dockerfile: dfx_rust.gitpod.Dockerfile
+      context: .
       args:
         VARIANT: ${VARIANT}
         DFX_VERSION: ${DFX_VERSION}
@@ -25,6 +28,7 @@ services:
     image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${VARIANT}-dfx-${DFX_VERSION}-gitpod-${PATCH_VERSION}
     build:
       dockerfile: dfx_node.gitpod.Dockerfile
+      context: .
       args:
         VARIANT: ${VARIANT}
         DFX_VERSION: ${DFX_VERSION}
