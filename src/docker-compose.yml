@@ -1,34 +1,36 @@
 version: "3.4"
 services:
   dfx_rust:
-    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_rust:${VARIANT}-dfx-${DFX_VERSION}-${PATCH_VERSION}
+    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_rust:${OS_VERSION}-dfx-${DFX_VERSION}-${RUST_TOOLCHAIN_VERSION}-${PATCH_VERSION}
     build:
       dockerfile: dfx_rust.root.Dockerfile
       context: .
       args:
-        VARIANT: ${VARIANT}
+        OS_VERSION: ${OS_VERSION}
         DFX_VERSION: ${DFX_VERSION}
   dfx_node:
-    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${VARIANT}-dfx-${DFX_VERSION}-${PATCH_VERSION}
+    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${OS_VERSION}-dfx-${DFX_VERSION}-${PATCH_VERSION}
     build:
       dockerfile: dfx_node.root.Dockerfile
       context: .
       args:
-        VARIANT: ${VARIANT}
+        OS_VERSION: ${OS_VERSION}
         DFX_VERSION: ${DFX_VERSION}
   dfx_rust_gitpod:
-    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_rust:${VARIANT}-dfx-${DFX_VERSION}-gitpod-${PATCH_VERSION}
+    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_rust:${OS_VERSION}-dfx-${DFX_VERSION}-${RUST_TOOLCHAIN_VERSION}-gitpod-${PATCH_VERSION}
     build:
       dockerfile: dfx_rust.gitpod.Dockerfile
       context: .
       args:
-        VARIANT: ${VARIANT}
+        OS_VERSION: ${OS_VERSION}
         DFX_VERSION: ${DFX_VERSION}
+        RUST_TOOLCHAIN_VERSION: ${RUST_TOOLCHAIN_VERSION}
   dfx_node_gitpod:
-    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${VARIANT}-dfx-${DFX_VERSION}-gitpod-${PATCH_VERSION}
+    image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${OS_VERSION}-dfx-${DFX_VERSION}-gitpod-${PATCH_VERSION}
     build:
       dockerfile: dfx_node.gitpod.Dockerfile
       context: .
       args:
-        VARIANT: ${VARIANT}
+        OS_VERSION: ${OS_VERSION}
         DFX_VERSION: ${DFX_VERSION}
+        RUST_TOOLCHAIN_VERSION: ${RUST_TOOLCHAIN_VERSION}

@@ -40,7 +40,7 @@ jobs:
         env:
           DOCKER_REGISTERY: dfxregistry.azurecr.io
           NAMESPACE: kentsday
-          VARIANT: bullseye
+          OS_VERSION: bullseye
       - name: Build and push dockerhub
         run: |
           cd src
@@ -49,7 +49,7 @@ jobs:
         env:
           DOCKER_REGISTERY: docker.io
           NAMESPACE: kentsday
-          VARIANT: bullseye
+          OS_VERSION: bullseye
       - name: Build and push arliyun
         run: |
           cd src
@@ -58,4 +58,4 @@ jobs:
         env:
           DOCKER_REGISTERY: registry.cn-hangzhou.aliyuncs.com
           NAMESPACE: internetcomputer
-          VARIANT: bullseye
+          OS_VERSION: bullseye

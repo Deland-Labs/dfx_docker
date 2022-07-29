@@ -1,6 +1,6 @@
 # [Choice] Debian OS version (use bullseye on local arm64/Apple Silicon): buster, bullseye
-ARG VARIANT="sudo"
-FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:16-${VARIANT}
+ARG OS_VERSION="sudo"
+FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:16-${OS_VERSION}
 ARG DFX_VERSION="0.9.3"
 
 # [Optional] Uncomment this section to install additional packages.
