@@ -1,6 +1,3 @@
-cargo install ic-cdk-optimizer
-cp /workspace/.cargo/bin/ic-cdk-optimizer cargo-cli/ic-cdk-optimizer
-
 cargo install cargo-audit
 cp /workspace/.cargo/bin/cargo-audit cargo-cli/cargo-audit
 
