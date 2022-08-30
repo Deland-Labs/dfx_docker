@@ -3,7 +3,7 @@ ARG OS_VERSION="sudo"
 FROM mcr.microsoft.com/vscode/devcontainers/rust:1-${OS_VERSION}
 ARG DFX_VERSION
 ARG NODE_VERSION=16
-ARG RUST_TOOLCHAIN_VERSION=1.62.1
+ARG RUST_TOOLCHAIN_VERSION=1.63.0
 
 # [Optional] Uncomment this section to install additional packages.
 COPY install-base-debian.sh .

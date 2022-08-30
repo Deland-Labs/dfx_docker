@@ -9,5 +9,6 @@ apt-get -y install \
     make \
     cmake \
     pkg-config \
+    clang \
     gcc-multilib
 apt-get clean
