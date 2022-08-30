@@ -13,8 +13,8 @@ RUN sudo ./install-base-ubuntu.sh
 RUN pip3 install pipenv && \
     pip3 install pre-commit
 SHELL ["/bin/bash", "-c"]
-RUN rustup toolchain install ${RUST_TOOLCHAIN_VERSION} && \
-    rustup target add wasm32-unknown-unknown --toolchain ${RUST_TOOLCHAIN_VERSION}
+RUN rustup toolchain install $RUST_TOOLCHAIN_VERSION && \
+    rustup target add wasm32-unknown-unknown --toolchain $RUST_TOOLCHAIN_VERSION
 RUN curl -fsSL https://sdk.dfinity.org/install.sh > install.sh && \
     chmod +x ./install.sh && \
     DFX_VERSION=$DFX_VERSION ./install.sh && \
