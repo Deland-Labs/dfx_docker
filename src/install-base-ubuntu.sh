@@ -10,5 +10,6 @@ apt-get -y install \
     cmake \
     pkg-config \
     clang \
-    gcc-multilib
+    gcc-multilib \
+    libssl-dev
 apt-get clean
