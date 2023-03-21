@@ -8,6 +8,8 @@ services:
       args:
         OS_VERSION: ${OS_VERSION}
         DFX_VERSION: ${DFX_VERSION}
+        NODE_VERSION: ${NODE_VERSION}
+        RUST_TOOLCHAIN_VERSION: ${RUST_TOOLCHAIN_VERSION}
   dfx_node:
     image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${OS_VERSION}-dfx-${DFX_VERSION}-${PATCH_VERSION}
     build:
@@ -16,6 +18,7 @@ services:
       args:
         OS_VERSION: ${OS_VERSION}
         DFX_VERSION: ${DFX_VERSION}
+        NODE_VERSION: ${NODE_VERSION}
   dfx_rust_gitpod:
     image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_rust:${OS_VERSION}-dfx-${DFX_VERSION}-${RUST_TOOLCHAIN_VERSION}-gitpod-${PATCH_VERSION}
     build:
@@ -25,6 +28,7 @@ services:
         OS_VERSION: ${OS_VERSION}
         DFX_VERSION: ${DFX_VERSION}
         RUST_TOOLCHAIN_VERSION: ${RUST_TOOLCHAIN_VERSION}
+        NODE_VERSION: ${NODE_VERSION}
   dfx_node_gitpod:
     image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${OS_VERSION}-dfx-${DFX_VERSION}-gitpod-${PATCH_VERSION}
     build:
@@ -34,3 +38,4 @@ services:
         OS_VERSION: ${OS_VERSION}
         DFX_VERSION: ${DFX_VERSION}
         RUST_TOOLCHAIN_VERSION: ${RUST_TOOLCHAIN_VERSION}
+        NODE_VERSION: ${NODE_VERSION}

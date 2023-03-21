@@ -10,12 +10,10 @@ COPY fix_gitpod_path.sh .
 # [Optional] Uncomment this section to install additional packages.
 COPY install-base-ubuntu.sh .
 RUN sudo ./install-base-ubuntu.sh
-RUN pip3 install pipenv && \
-    pip3 install pre-commit
 SHELL ["/bin/bash", "-c"]
 RUN rustup toolchain install $RUST_TOOLCHAIN_VERSION && \
     rustup target add wasm32-unknown-unknown --toolchain $RUST_TOOLCHAIN_VERSION
-RUN curl -fsSL https://sdk.dfinity.org/install.sh > install.sh && \
+RUN curl -fsSL https://internetcomputer.org/install.sh > install.sh && \
     chmod +x ./install.sh && \
     DFX_VERSION=$DFX_VERSION ./install.sh && \
     rm ./install.sh

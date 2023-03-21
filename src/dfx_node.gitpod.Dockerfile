@@ -8,7 +8,7 @@ COPY fix_gitpod_path.sh .
 COPY install-base-ubuntu.sh .
 RUN sudo ./install-base-ubuntu.sh
 
-RUN curl -fsSL https://sdk.dfinity.org/install.sh > install.sh && \
+RUN curl -fsSL https://internetcomputer.org/install.sh > install.sh && \
     chmod +x install.sh && \
     DFX_VERSION=$DFX_VERSION  ./install.sh && \
     rm install.sh
