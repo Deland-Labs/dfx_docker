@@ -9,6 +9,7 @@ services:
         OS_VERSION: ${OS_VERSION}
         DFX_VERSION: ${DFX_VERSION}
         NODE_VERSION: ${NODE_VERSION}
+        RUST_TOOLCHAIN_VERSION: ${RUST_TOOLCHAIN_VERSION}
   dfx_node:
     image: ${DOCKER_REGISTERY}/${NAMESPACE}/dfx_node:${OS_VERSION}-dfx-${DFX_VERSION}-${PATCH_VERSION}
     build:

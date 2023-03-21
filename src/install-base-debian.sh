@@ -12,4 +12,5 @@ apt-get -y install \
     clang \
     gcc-multilib \
     libssl-dev
+apt-get autoremove
 apt-get clean
